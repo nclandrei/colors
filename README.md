@@ -14,5 +14,4 @@ uv run generate.py
 |------|-----|
 | `themes/ghostty` | Ghostty |
 | `themes/iterm2.json` | iTerm2 DynamicProfiles |
-| `themes/alacritty.toml` | Alacritty |
 | `themes/neovim.lua` | Neovim terminal colors |

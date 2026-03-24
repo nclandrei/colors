@@ -88,51 +88,6 @@ def write_iterm2(palette: dict) -> None:
         f.write("\n")
 
 
-# ── Alacritty ────────────────────────────────────────────────────────────────
-
-
-def write_alacritty(palette: dict) -> None:
-    c = palette["colors"]
-
-    def q(h: str) -> str:
-        return f'"{h}"'
-
-    lines = [
-        "[colors.primary]",
-        f"background = {q(c['background'])}",
-        f"foreground = {q(c['foreground'])}",
-        "",
-        "[colors.cursor]",
-        f"cursor = {q(c['cursor'])}",
-        f"text = {q(c['cursor_text'])}",
-        "",
-        "[colors.selection]",
-        f"background = {q(c['selection'])}",
-        f"text = {q(c['selection_text'])}",
-        "",
-        "[colors.normal]",
-        f"black = {q(c['black'])}",
-        f"red = {q(c['red'])}",
-        f"green = {q(c['green'])}",
-        f"yellow = {q(c['yellow'])}",
-        f"blue = {q(c['blue'])}",
-        f"magenta = {q(c['magenta'])}",
-        f"cyan = {q(c['cyan'])}",
-        f"white = {q(c['white'])}",
-        "",
-        "[colors.bright]",
-        f"black = {q(c['bright_black'])}",
-        f"red = {q(c['bright_red'])}",
-        f"green = {q(c['bright_green'])}",
-        f"yellow = {q(c['bright_yellow'])}",
-        f"blue = {q(c['bright_blue'])}",
-        f"magenta = {q(c['bright_magenta'])}",
-        f"cyan = {q(c['bright_cyan'])}",
-        f"white = {q(c['bright_white'])}",
-    ]
-    (THEMES / "alacritty.toml").write_text("\n".join(lines) + "\n")
-
-
 # ── Neovim ───────────────────────────────────────────────────────────────────
 
 
@@ -174,7 +129,6 @@ def main() -> None:
     palette = load_palette()
     write_ghostty(palette)
     write_iterm2(palette)
-    write_alacritty(palette)
     write_neovim(palette)
     print(f"Generated themes in {THEMES}/")
 
